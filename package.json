@@ -1,0 +1,15 @@
+{
+  "name": "i-backend-project",
+  "version": "1.0.0",
+  "description": "Proyecto del curso Backend I de Coderhouse",
+  "main": "app.js",
+  "type":"module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Christian Alcalde",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.1"
+  }
+}
