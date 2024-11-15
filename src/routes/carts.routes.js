@@ -4,12 +4,13 @@ const router = Router()
 
 const carts = []
 
-// Listar todos los carritos
+// Listar todos los carritos //////////////////////////////////////////////////
 router.get("/", (req, res) => {
     res.send(carts)
 })
 
-// Listar todos los productos de un carrito
+
+// Listar todos los productos de un carrito ///////////////////////////////////
 router.get("/:cid", (req, res) => {
     const cartId = parseInt(req.params.cid)
     const findById = carts.find(cart => cart.id === cartId)
@@ -21,7 +22,8 @@ router.get("/:cid", (req, res) => {
     res.send(findById.products)
 })
 
-// Generar un carrito
+
+// Generar un carrito /////////////////////////////////////////////////////////
 router.post("/", (req, res) => {
     let cart = {}
 
@@ -34,7 +36,8 @@ router.post("/", (req, res) => {
     res.send({status: "success", msg: "carrito generado con éxito"})
 })
 
-// Agregar un producto a un carrito determinado
+
+// Agregar un producto a un carrito determinado ///////////////////////////////
 router.post("/:cid/product/:pid", (req, res) => {
     const cartId = parseInt(req.params.cid)
     const productId = parseInt(req.params.pid)
