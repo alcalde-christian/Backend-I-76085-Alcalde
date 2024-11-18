@@ -31,7 +31,7 @@ router.get("/:pid", async (req, res) => {
         }
     } catch (error) {
         console.log(error)
-        res.status(500).json({success: false, error: "Error al obtener los productos"})
+        res.status(500).json({success: false, error: "Error al obtener el producto"})
     }
 })
 
@@ -64,7 +64,7 @@ router.put("/:pid", async (req, res) => {
         if (!updatedProduct) {
             return res.status(404).json({success: false, error: "Producto no encontrado"})
         } else {
-            res.status(201).json({success: true, data: updatedProduct})
+            res.status(200).json({success: true, data: updatedProduct})
         }
     } catch (error) {
         console.log(error)
@@ -88,16 +88,6 @@ router.delete("/:pid", async (req, res) => {
         console.log(error)
         res.status(500).json({success: false, error: "Error al eliminar el producto"})
     }
-    const productId = parseInt(req.params.pid)
-    const productIndex = products.findIndex(prod => prod.id === productId)
-
-    if (productIndex == -1) {
-        return res.status(404).send("Producto no encontrado")
-    }
-
-    products.splice(productIndex, 1)
-
-    res.send({ status: "success", msg: "producto eliminado"})
 })
 
 

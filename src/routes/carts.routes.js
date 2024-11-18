@@ -1,57 +1,68 @@
 import { Router } from "express";
+import CartManager from "../services/CartManager.js";
 
 const router = Router()
+const cartManager = new CartManager()
 
-const carts = []
 
 // Listar todos los carritos //////////////////////////////////////////////////
-router.get("/", (req, res) => {
-    res.send(carts)
+router.get("/", async (req, res) => {
+    try {
+        const carts = await cartManager.getAll()
+        res.status(200).json({success: true, data: carts})
+    } catch (error) {
+        console.log(error)
+        res.status(500).json({success: false, error: "Error al obtener los carritos"})
+    }
 })
 
 
 // Listar todos los productos de un carrito ///////////////////////////////////
-router.get("/:cid", (req, res) => {
-    const cartId = parseInt(req.params.cid)
-    const findById = carts.find(cart => cart.id === cartId)
+router.get("/:cid", async (req, res) => {
+    try {
+        const cartId = parseInt(req.params.cid)
+        const cart = await cartManager.getById(cartId)
 
-    if (!findById) {
-        return res.status(404).send("Carrito no encontrado")
+        if (!cart) {
+            return res.status(404).json({success: false, error: "Carrito no encontrado"})
+        } else {
+            res.status(200).json({success: true, data: cart.products})
+        }
+    } catch (error) {
+        console.log(error)
+        res.status(500).json({success: false, error: "Error al obtener el carrito"})
     }
-
-    res.send(findById.products)
 })
 
 
 // Generar un carrito /////////////////////////////////////////////////////////
-router.post("/", (req, res) => {
-    let cart = {}
-
-    const randomIndex = Math.floor(Math.random() * 100)
-    cart.id = randomIndex
-    cart.products = []
-
-    carts.push(cart)
-
-    res.send({status: "success", msg: "carrito generado con éxito"})
+router.post("/", async (req, res) => {
+    try {
+        const newCart = await cartManager.create()
+        res.status(201).json({success: true, data: newCart})
+    } catch (error) {
+        console.log(error)
+        res.status(500).json({success: false, error: "Error al crear el carrito"})
+    }
 })
 
 
 // Agregar un producto a un carrito determinado ///////////////////////////////
-router.post("/:cid/product/:pid", (req, res) => {
-    const cartId = parseInt(req.params.cid)
-    const productId = parseInt(req.params.pid)
+router.post("/:cid/product/:pid", async (req, res) => {
+    try {
+        const cartId = parseInt(req.params.cid)
+        const productId = parseInt(req.params.pid)
+        const addProduct = await cartManager.addProduct(cartId, productId)
 
-    const findById = carts.find(cart => cart.id === cartId)
-    const isAlreadyAdded = findById.products.find(prod => prod.id === productId)
-
-    if (!isAlreadyAdded) {
-        findById.products.push({id: productId, qty: 1})
-    } else {
-        isAlreadyAdded.qty ++
+        if (!addProduct.success) {
+            return res.status(404).json({success: false, error: addProduct.error})
+        } else {
+            res.status(200).json({success: true, data: addProduct.products})
+        }
+    } catch (error) {
+        console.log(error)
+        res.status(500).json({success: false, error: "Error al agregar productos al carrito"})
     }
-
-    res.send({status: "success", msg: "producto agregado al carrito con éxito"})
 })
 
 export default router

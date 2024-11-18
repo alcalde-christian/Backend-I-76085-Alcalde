@@ -9,7 +9,6 @@ export default class ProductManager {
         this.init()
     }
 
-
     // Método de inicialización de la clase
     async init() {
         try {
@@ -23,8 +22,13 @@ export default class ProductManager {
 
     // Método para la persistencia de la información
     async saveToFile() {
-        const jsonData = JSON.stringify(this.products, null, 2)
-        await fs.writeFile(productsFilePath, jsonData)
+        try {
+            const jsonData = JSON.stringify(this.products, null, 2)
+            await fs.writeFile(productsFilePath, jsonData) 
+        } catch (error) {
+            console.log(error)
+            throw new Error("No se pudo guardar el archivo de productos")
+        }
     }
 
 
@@ -90,6 +94,6 @@ export default class ProductManager {
 
         this.saveToFile()
 
-        return deletedProduct
+        return deletedProduct[0]
     }
 }

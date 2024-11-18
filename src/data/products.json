@@ -1,0 +1,46 @@
+[
+  {
+    "id": 591,
+    "title": "Motorola v3",
+    "description": "Clásico",
+    "code": "randomCodeHere",
+    "price": 3000000,
+    "stock": 5,
+    "category": "cellphones",
+    "thumbnail": "not available yet",
+    "status": true
+  },
+  {
+    "id": 367,
+    "title": "iPhone 14 Pro Max",
+    "description": "Un impresionante iPhone nuevo",
+    "code": "randomCodeHere",
+    "price": 3000000,
+    "stock": 5,
+    "category": "cellphones",
+    "thumbnail": "not available yet",
+    "status": true
+  },
+  {
+    "id": 433,
+    "title": "Samsung s24 Ultra",
+    "description": "Un Samsung superador",
+    "code": "randomCodeHere",
+    "price": 3000000,
+    "stock": 5,
+    "category": "cellphones",
+    "thumbnail": "not available yet",
+    "status": true
+  },
+  {
+    "id": 839,
+    "title": "Nokia 1100",
+    "description": "Indestructible",
+    "code": "randomCodeHere",
+    "price": 3000000,
+    "stock": 5,
+    "category": "cellphones",
+    "thumbnail": "not available yet",
+    "status": true
+  }
+]
