@@ -1,46 +1,152 @@
 [
   {
-    "id": 591,
-    "title": "Motorola v3",
-    "description": "Clásico",
-    "code": "randomCodeHere",
-    "price": 3000000,
-    "stock": 5,
+    "id": 142,
+    "title": "Nokia 1100",
+    "description": "Indestructible (en la mayoría de los casos)",
+    "code": "modifiedCodeHere",
+    "price": 125000,
+    "stock": 500,
     "category": "cellphones",
-    "thumbnail": "not available yet",
+    "thumbnail": [
+      "still",
+      "not",
+      "available"
+    ],
     "status": true
   },
   {
-    "id": 367,
+    "id": 351,
     "title": "iPhone 14 Pro Max",
-    "description": "Un impresionante iPhone nuevo",
+    "description": "Un increíble iPhone nuevo",
     "code": "randomCodeHere",
     "price": 3000000,
-    "stock": 5,
+    "stock": 15,
     "category": "cellphones",
-    "thumbnail": "not available yet",
+    "thumbnail": [
+      "not",
+      "available",
+      "yet"
+    ],
     "status": true
   },
   {
-    "id": 433,
+    "id": 238,
     "title": "Samsung s24 Ultra",
     "description": "Un Samsung superador",
     "code": "randomCodeHere",
-    "price": 3000000,
-    "stock": 5,
+    "price": 2900000,
+    "stock": 25,
     "category": "cellphones",
-    "thumbnail": "not available yet",
+    "thumbnail": [
+      "not",
+      "available",
+      "yet"
+    ],
     "status": true
   },
   {
-    "id": 839,
-    "title": "Nokia 1100",
-    "description": "Indestructible",
+    "id": 883,
+    "title": "Samsung s22",
+    "description": "Una opción más asequible para quienes desean un teléfono de alta gama",
     "code": "randomCodeHere",
-    "price": 3000000,
+    "price": 1750000,
+    "stock": 50,
+    "category": "cellphones",
+    "thumbnail": [
+      "not",
+      "available",
+      "yet"
+    ],
+    "status": true
+  },
+  {
+    "id": 705,
+    "title": "Samsung a33",
+    "description": "El entrada de gama de Samsung",
+    "code": "randomCodeHere",
+    "price": 850000,
+    "stock": 90,
+    "category": "cellphones",
+    "thumbnail": [
+      "not",
+      "available",
+      "yet"
+    ],
+    "status": true
+  },
+  {
+    "id": 490,
+    "title": "Samsung a53",
+    "description": "Potente y económico",
+    "code": "randomCodeHere",
+    "price": 950000,
     "stock": 5,
     "category": "cellphones",
-    "thumbnail": "not available yet",
+    "thumbnail": [
+      "not",
+      "available",
+      "yet"
+    ],
+    "status": true
+  },
+  {
+    "id": 241,
+    "title": "Motorola One Vision",
+    "description": "Diseño y elegancia",
+    "code": "randomCodeHere",
+    "price": 650000,
+    "stock": 100,
+    "category": "cellphones",
+    "thumbnail": [
+      "not",
+      "available",
+      "yet"
+    ],
+    "status": true
+  },
+  {
+    "id": 123,
+    "title": "Lenovo Ideapad 15.6 pulgadas",
+    "description": "Eficiencia y eficacia para todos los quehaceres",
+    "code": "randomCodeHere",
+    "price": 1450000,
+    "stock": 8,
+    "category": "laptops",
+    "thumbnail": [
+      "not",
+      "available",
+      "yet"
+    ],
+    "status": true
+  },
+  {
+    "id": 127,
+    "title": "Lenovo Ideapad 17 pulgadas",
+    "description": "Un nivel más de prestaciones",
+    "code": "randomCodeHere",
+    "price": 1600000,
+    "stock": 5,
+    "category": "laptops",
+    "thumbnail": [
+      "not",
+      "available",
+      "yet"
+    ],
+    "status": true
+  },
+  {
+    "id": 462,
+    "title": "Macbook Air Pro",
+    "description": "Lo último en tecnología",
+    "code": "randomCodeHere",
+    "price": 4500000,
+    "stock": 2,
+    "category": "laptops",
+    "thumbnail": [
+      "not",
+      "available",
+      "yet"
+    ],
     "status": true
   }
 ]

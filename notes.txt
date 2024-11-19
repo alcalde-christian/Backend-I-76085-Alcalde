@@ -7,11 +7,11 @@ Primera pre-entrega:
 
 // API: products
     * GET **OK**
+    * GET /?limit **OK**
     * GET /:pid **OK**
-    * POST **FALTA CODE, STATUS Y THUMBNAIL** <--------------------------------
+    * POST **FALTAN THUMBNAILS**
         * Creación ID **OK**
     * PUT /:pid **OK**
-        * Validación ID **OK**
     * DELETE /:pid **OK**
 
 // API: carts
@@ -23,5 +23,5 @@ Primera pre-entrega:
         * Manejo de cantidades **OK**
 
 // Persistencia de información
-    * ProductManager Class <---------------------------------------------------
-    * CartManager Class <------------------------------------------------------
+    * ProductManager Class **OK**
+    * CartManager Class **OK**
