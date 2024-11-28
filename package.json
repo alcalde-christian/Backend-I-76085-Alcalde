@@ -3,13 +3,14 @@
   "version": "1.0.0",
   "description": "Proyecto del curso Backend I de Coderhouse",
   "main": "app.js",
-  "type":"module",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Christian Alcalde",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.21.1"
+    "express": "^4.21.1",
+    "express-handlebars": "^8.0.1"
   }
 }
