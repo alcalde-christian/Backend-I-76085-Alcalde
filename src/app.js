@@ -3,12 +3,18 @@ import handlebars  from "express-handlebars"
 import productsRoutes from './routes/products.routes.js'
 import cartsRoutes from './routes/carts.routes.js'
 import viewsRoutes from "./routes/views.routes.js"
-
 import __dirname from "./utils.js"
+import { Server } from "socket.io"
+
 
 // Declaración de express y asignación de puerto.
 const app = express()
 const PORT = 8080
+const httpServer = app.listen(PORT, () => console.log(`Escuchando en el puerto: ${PORT}`))
+
+
+// Configuración de sockets
+const socketServer = new Server(httpServer)
 
 
 // Configuración de la carpeta "public"
@@ -38,6 +44,7 @@ app.use("/api/carts", cartsRoutes)
 app.use("/", viewsRoutes)
 
 
-app.listen(PORT, () => {
-    console.log(`Escuchando en el puerto: ${PORT}`)
+// Canal de comunicación mediante sockets
+socketServer.on("connection", socket => {
+    
 })

@@ -1,1 +1,17 @@
+.productContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0 250px;
+}
 
+.productCard {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 150px;
+    margin: 25px;
+    border: 1px solid black;
+    text-align: center;
+}
