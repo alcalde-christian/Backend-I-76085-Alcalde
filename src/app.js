@@ -5,6 +5,7 @@ import cartsRoutes from './routes/carts.routes.js'
 import viewsRoutes from "./routes/views.routes.js"
 import __dirname from "./utils.js"
 import { Server } from "socket.io"
+import ProductManager from "./services/ProductManager.js"
 
 
 // Declaración de express y asignación de puerto.
@@ -13,8 +14,8 @@ const PORT = 8080
 const httpServer = app.listen(PORT, () => console.log(`Escuchando en el puerto: ${PORT}`))
 
 
-// Configuración de sockets
-const socketServer = new Server(httpServer)
+// Configuración de socket
+const io = new Server(httpServer)
 
 
 // Configuración de la carpeta "public"
@@ -43,8 +44,16 @@ app.use("/api/products", productsRoutes)
 app.use("/api/carts", cartsRoutes)
 app.use("/", viewsRoutes)
 
+const productManager = new ProductManager()
 
 // Canal de comunicación mediante sockets
-socketServer.on("connection", socket => {
-    
+io.on("connection", async socket => {
+    io.emit("allProducts", await productManager.getAll())
+
+    socket.on("newProduct", async data => {
+        console.log("Recibido:" + JSON.stringify(data, null, 2))
+        
+        io.emit("allProducts", await productManager.getAll())
+        console.log(productManager.getAll())
+    })
 })

@@ -16,4 +16,13 @@ router.get("/", async (req, res) => {
     }
 })
 
+router.get("/realtimeproducts", async (req, res) => {
+    try {
+        const products = await productManager.getAll()
+        res.render("realTimeProducts", {products})
+    } catch (error) {
+        console.log(error)
+    }
+})
+
 export default router

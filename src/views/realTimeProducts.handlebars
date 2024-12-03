@@ -1,5 +1,49 @@
-<div>
-    Real Time Products 
+<h3 style="text-align: center;">
+    Agregar un nuevo producto
+</h3>
+
+<form id="newProductForm">
+    <label for="category">Categoría:</label>
+    <input type="text" id="category" name="category" placeholder="Ejemplo: Electrónica" required>
+
+    <label for="code">Código:</label>
+    <input type="text" id="code" name="code" placeholder="Ejemplo: P12345" required>
+
+    <label for="title">Título:</label>
+    <input type="text" id="title" name="title" placeholder="Ejemplo: Marca Modelo" required>
+
+    <label for="description">Descripción:</label>
+    <textarea id="description" name="description" placeholder="Descripción detallada del producto" required></textarea>
+
+    <label for="price">Precio:</label>
+    <input type="number" id="price" name="price" placeholder="Ejemplo: 599.99" step="0.01" required>
+
+    <label for="stock">Stock:</label>
+    <input type="number" id="stock" name="stock" placeholder="Ejemplo: 10" required>
+
+    <label for="thumbnail">URL de la Imagen:</label>
+    <input type="url" id="thumbnail" name="thumbnail" placeholder="Ejemplo: https://example.com/image.jpg">
+
+    <button type="submit">Agregar Producto</button>
+</form>
+
+<div class="productsContainer" id="productsContainer">
+    {{!-- {{#each products}}
+        <div class="productCard">
+            <p>
+                {{this.title}}
+            </p>
+            <p>
+                {{this.description}}
+            </p>
+            <p>
+                $ {{this.price}}
+            </p>
+            <button class="deleteButton">
+                Eliminar
+            </button>
+        </div>
+    {{/each}} --}}
 </div>
 
 <script src="/socket.io/socket.io.js"></script>

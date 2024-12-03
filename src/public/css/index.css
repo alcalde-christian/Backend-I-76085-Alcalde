@@ -1,17 +1,90 @@
-.productContainer {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin: 0 250px;
-}
+:root {
+    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+  
+    color-scheme: light dark;
+  
+    --primary-color: #1ABEE9;
+    --secondary-color: #E35C91;
+    --secondary-color-light: #eb79a1;
+    --background-color: #242424;
+    --card-background-color: #121212;
+    --font-color: rgba(255, 255, 255, 0.87);
+  }
+  
+  body {
+    margin: 0;
+    color: var(--font-color);
+    background-color: var(--background-color);
+  }
+  
 
-.productCard {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    width: 150px;
-    margin: 25px;
-    border: 1px solid black;
-    text-align: center;
-}
+/*///////////////////////////////////////////////////////////////////////////*/
+/* Estilos de index.handlebars                                               */
+/*///////////////////////////////////////////////////////////////////////////*/
+
+    .productsContainer {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 50px;
+        margin-top: 50px;
+    }
+
+        .productCard {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            text-align: center;
+            width: 250px;
+            border: 2px solid var(--secondary-color);
+            border-radius: 10px;
+            background-color: var(--card-background-color);
+            transition: background-color 0.5s ease;
+            box-shadow: 5px 5px 15px black;
+        }
+
+            .productCard:hover {
+                border: 2px solid var(--primary-color);
+                transition: border ease 0.5s;
+            }
+
+
+/*///////////////////////////////////////////////////////////////////////////*/
+/* Estilos de realTimeProducts.handlebars                                    */
+/*///////////////////////////////////////////////////////////////////////////*/
+
+    form {
+        display: flex;
+        flex-direction: column;
+        margin: 0 35%;
+        max-width: 30%;
+    }
+
+    label {
+        margin-top: 10px;
+    }
+
+    input, textarea, button {
+        margin: 5px 0;
+        padding: 10px;
+        font-size: 16px;
+        border: none;
+        outline: none;
+    }
+
+    button {
+        background-color: var(--secondary-color);
+        color: var(--font-color);
+        border: none;
+        cursor: pointer;
+        transition: background-color ease 0.3s;
+    }
+
+        button:hover {
+            background-color: var(--secondary-color-light);
+        }
+
+    .deleteButton {
+        margin: 5% 15%;
+    }
