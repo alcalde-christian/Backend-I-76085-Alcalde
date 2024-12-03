@@ -148,38 +148,5 @@
       "yet"
     ],
     "status": true
-  },
-  {
-    "id": 992,
-    "title": "Samsung s8",
-    "description": "123",
-    "code": "SAMS8",
-    "price": "199",
-    "stock": "10",
-    "category": "cellphones",
-    "thumbnail": "",
-    "status": true
-  },
-  {
-    "id": 274,
-    "title": "Samsung s8",
-    "description": "Samsung",
-    "code": "SAMS8",
-    "price": "199",
-    "stock": "10",
-    "category": "cellphones",
-    "thumbnail": "",
-    "status": true
-  },
-  {
-    "id": 245,
-    "title": "Nokia",
-    "description": "123",
-    "code": "randomCodeHere",
-    "price": "199",
-    "stock": "10",
-    "category": "cellphones",
-    "thumbnail": "",
-    "status": true
   }
 ]

@@ -2,6 +2,7 @@
     Agregar un nuevo producto
 </h3>
 
+{{!-- Formulario para agregar nuevos productos a la BD --}}
 <form id="newProductForm">
     <label for="category">Categoría:</label>
     <input type="text" id="category" name="category" placeholder="Ejemplo: Electrónica" required>
@@ -27,24 +28,11 @@
     <button type="submit">Agregar Producto</button>
 </form>
 
+
 <div class="productsContainer" id="productsContainer">
-    {{!-- {{#each products}}
-        <div class="productCard">
-            <p>
-                {{this.title}}
-            </p>
-            <p>
-                {{this.description}}
-            </p>
-            <p>
-                $ {{this.price}}
-            </p>
-            <button class="deleteButton">
-                Eliminar
-            </button>
-        </div>
-    {{/each}} --}}
+    {{!-- Aquí se listarán los productos almacenados en la BD --}}
 </div>
 
+{{!-- Scripts --}}
 <script src="/socket.io/socket.io.js"></script>
-<script src="/js/index.js"></script>
+<script src="/js/realTimeProducts.js"></script>

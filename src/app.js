@@ -1,11 +1,11 @@
 import express from "express"
 import handlebars  from "express-handlebars"
+import ProductManager from "./services/ProductManager.js"
 import productsRoutes from './routes/products.routes.js'
 import cartsRoutes from './routes/carts.routes.js'
 import viewsRoutes from "./routes/views.routes.js"
 import __dirname from "./utils.js"
 import { Server } from "socket.io"
-import ProductManager from "./services/ProductManager.js"
 
 
 // Declaración de express y asignación de puerto.
@@ -44,16 +44,22 @@ app.use("/api/products", productsRoutes)
 app.use("/api/carts", cartsRoutes)
 app.use("/", viewsRoutes)
 
+
 const productManager = new ProductManager()
 
 // Canal de comunicación mediante sockets
 io.on("connection", async socket => {
-    io.emit("allProducts", await productManager.getAll())
+    const products = await productManager.getAll()
+    io.emit("allProducts", products)
 
-    socket.on("newProduct", async data => {
+    socket.on("newProduct", data => {
         console.log("Recibido:" + JSON.stringify(data, null, 2))
-        
-        io.emit("allProducts", await productManager.getAll())
-        console.log(productManager.getAll())
+        products.push(data)
+        io.emit("allProducts", products)
+    })
+
+    socket.on("deletedProduct", data => {
+        productManager.delete(data)
+        io.emit("allProducts", products)
     })
 })

@@ -86,7 +86,7 @@ export default class ProductManager {
 
     // Método para eliminar un producto
     async delete(id) {
-        const productIndex = this.products.findIndex(prod => prod.id === id)
+        const productIndex = this.products.findIndex(prod => prod.id === parseInt(id))
 
         if (productIndex === -1) return null
 
