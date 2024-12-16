@@ -1,27 +1,3 @@
-Primera pre-entrega:
+Entrega final:
 
-// Servidor
-    * Express **OK**
-    * Port: 8080 **OK**
-    * Router: /products /carts **OK**
-
-// API: products
-    * GET **OK**
-    * GET /?limit **OK**
-    * GET /:pid **OK**
-    * POST **FALTAN THUMBNAILS**
-        * Creación ID **OK**
-    * PUT /:pid **OK**
-    * DELETE /:pid **OK**
-
-// API: carts
-    * GET **NO PEDIDO, PERO OK**
-    * GET /:cid **OK**
-    * POST **OK**
-        * Creación ID **OK**
-    * POST /:cid/product/:pid **OK** 
-        * Manejo de cantidades **OK**
-
-// Persistencia de información
-    * ProductManager Class **OK**
-    * CartManager Class **OK**
+* Clase 16: desde 00:34:00 * 
