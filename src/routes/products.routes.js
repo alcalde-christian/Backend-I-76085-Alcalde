@@ -1,9 +1,6 @@
 import { Router } from "express";
-import ProductManager from "../services/ProductManager.js";
-
-// TEMP
-    import { productModel } from "../models/product.model.js"
-// TEMP
+import ProductManager from "../services/db/ProductManager.js"
+// import ProductManager from "../services/fs/ProductManager.js";
 
 const router = Router()
 const productManager = new ProductManager()
@@ -14,13 +11,7 @@ router.get("/", async (req, res) => {
     try {
         const limit = req.query.limit ? parseInt(req.query.limit) : undefined
         const products = await productManager.getAll(limit)
-
-        // TEMP
-        const productsTemp = await productModel.find()
-        console.log(productsTemp)
-        // TEMP                                 ( TEMP AQUI ABAJO )
-
-        res.status(200).json({success: true, data: productsTemp})
+        res.status(200).json({success: true, data: products})
     } catch (error) {
         console.log(error)
         res.status(500).json({success: false, error: "Error al obtener los productos"})

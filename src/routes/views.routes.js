@@ -1,5 +1,5 @@
 import { Router } from "express"
-import ProductManager from "../services/ProductManager.js";
+import ProductManager from "../services/fs/ProductManager.js";
 
 
 const router = Router()
@@ -16,6 +16,7 @@ router.get("/", async (req, res) => {
     }
 })
 
+/*
 router.get("/realtimeproducts", (req, res) => {
     try {
         res.render("realTimeProducts", {})
@@ -23,5 +24,6 @@ router.get("/realtimeproducts", (req, res) => {
         console.log(error)
     }
 })
+*/
 
 export default router

@@ -1,12 +1,12 @@
 import express from "express"
 import handlebars  from "express-handlebars"
 import mongoose from "mongoose"
-import ProductManager from "./services/ProductManager.js"
+// import ProductManager from "./services/fs/ProductManager.js"
 import productsRoutes from './routes/products.routes.js'
 import cartsRoutes from './routes/carts.routes.js'
 import viewsRoutes from "./routes/views.routes.js"
 import __dirname from "./utils.js"
-import { Server } from "socket.io"
+// import { Server } from "socket.io"
 
 
 // Declaración de express y asignación de puerto.
@@ -16,7 +16,7 @@ const httpServer = app.listen(PORT, () => console.log(`Escuchando en el puerto: 
 
 
 // Configuración de socket
-const io = new Server(httpServer)
+// const io = new Server(httpServer)
 
 
 // Configuración de la carpeta "public"
@@ -46,6 +46,7 @@ app.use("/api/carts", cartsRoutes)
 app.use("/", viewsRoutes)
 
 
+/* 
 const productManager = new ProductManager()
 
 // Canal de comunicación mediante sockets
@@ -64,16 +65,19 @@ io.on("connection", async socket => {
         io.emit("allProducts", products)
     })
 })
+*/
 
 
 // Conexión con la base de datos
 const DBPATH = "mongodb+srv://alcaldechristian:an591l6r7LH1Mnro@cluster0.dgphy.mongodb.net/phonemart?retryWrites=true&w=majority&appName=Cluster0"
+
 const connectToMongoDB = async () => {
     try {
         await mongoose.connect(DBPATH)
         console.log("Conectado a MongoDB")
     } catch (error) {
         console.log(error)
+        process.exit()
     }
 }
 
