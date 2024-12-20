@@ -1,1 +1,25 @@
 Entrega final:
+
+API - Products:
+* GET:
+    - limit         **OK**
+    - page          **OK**
+    - query         **OK**
+    - sort
+        - category  **OK**
+        - status    ------
+    - links         ------
+* POST:
+    - MongoDB       **OK**
+* PUT:
+    - MongoDB       **OK**
+* DELETE:
+    - MongoDB       **OK**
+
+API - Carts
+* GET:              -----
+* POST:             -----
+* PUT:              -----
+* DELETE:           -----
+
+* Handlebars        -----

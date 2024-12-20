@@ -6,7 +6,6 @@ const productCollection = "products"
 const productSchema = new mongoose.Schema({
     title: {
         type: String,
-        index: true,
         required: true
     },
     description: {
@@ -32,7 +31,8 @@ const productSchema = new mongoose.Schema({
     },
     category: {
         type: String,
-        required: true
+        required: true,
+        index: true
     },
     thumbnails: []
 })
