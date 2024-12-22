@@ -1,16 +1,37 @@
 {{!-- Listado no dinámico (se necesita recargar) de los productos almacenados en la BD --}}
-<div class="productsContainer">
-    {{#each products}}
-        <div class="productCard">
-            <p>
-                {{this.title}}
-            </p>
-            <p>
-                {{this.description}}
-            </p>
-            <p>
-                $ {{this.price}}
-            </p>
-        </div>
-    {{/each}}
-</div>
+
+{{#if isValid}}
+    <div class="productsContainer">
+        {{#each docs}}
+            <div class="productCard">
+                <p>
+                    {{this.title}}
+                </p>
+                <p>
+                    {{this.description}}
+                </p>
+                <p>
+                    $ {{this.price}}
+                </p>
+            </div>
+        {{/each}}
+    </div>
+
+    <div class="navLinksContainer">
+        {{#if hasPrevPage}}
+            <a href={{this.prevLink}} class="navLink"><< Anterior</a>
+        {{/if}}
+    
+        &nbsp;
+            {{this.page}}
+        &nbsp;
+
+        {{#if hasNextPage}}
+            <a href={{this.nextLink}} class="navLink">Siguiente >></a>
+        {{/if}}
+    </div>
+{{else}}
+    <div>
+        No se encontraron productos con los filtros solicitados
+    </div>
+{{/if}}

@@ -91,3 +91,20 @@
                 border: 2px solid var(--primary-color);
                 transition: border ease 0.5s;
             }
+
+    .navLinksContainer {
+        text-align: center;
+        margin: 50px;
+    }
+
+        .navLink {
+            margin: 0 15px;
+            text-decoration: none;
+            color: var(--font-color);
+            font-weight: bold;
+            transition: color ease 0.5s;
+        }
+
+            .navLink:hover {
+                color: var(--primary-color);
+            }

@@ -8,7 +8,7 @@ API - Products:
     - sort
         - category  **OK**
         - status    ------
-    - links         ------
+    - links         **OK**
 * POST:
     - MongoDB       **OK**
 * PUT:
@@ -22,4 +22,6 @@ API - Carts
 * PUT:              -----
 * DELETE:           -----
 
-* Handlebars        -----
+Handlebars          
+* Products          **OK**
+* Carts             -----
