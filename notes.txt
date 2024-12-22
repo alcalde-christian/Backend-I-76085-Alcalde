@@ -17,11 +17,19 @@ API - Products:
     - MongoDB       **OK**
 
 API - Carts
-* GET:              -----
-* POST:             -----
-* PUT:              -----
-* DELETE:           -----
+* GET:              
+    - getAll        **OK**
+    - getById       **OK**
+* POST:             
+    - create        **OK**
+    - addProduct    **OK**
+* PUT:              
+    -               ------
+    -               ------
+* DELETE:           
+    - removeProduct **OK**
+    - removeAll     ------
 
 Handlebars          
 * Products          **OK**
-* Carts             -----
+* Carts             ------
