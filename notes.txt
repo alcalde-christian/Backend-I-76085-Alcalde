@@ -24,11 +24,11 @@ API - Carts
     - create        **OK**
     - addProduct    **OK**
 * PUT:              
-    -               ------
-    -               ------
+    - updateProducts**OK**
+    - updateQty     **OK**
 * DELETE:           
     - removeProduct **OK**
-    - removeAll     ------
+    - removeAll     **OK**
 
 Handlebars          
 * Products          **OK**

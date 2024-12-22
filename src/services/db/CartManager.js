@@ -50,6 +50,7 @@ export default class CartManager {
         return {success: true, data: updatedCart}
     }
 
+
     // Método para eliminar un producto de un carrito determinado
     async removeProduct(cartId, productId) {
         const cartToFind = await cartModel.findById(cartId)
@@ -67,6 +68,7 @@ export default class CartManager {
         return {success: true, data: updatedCart}
     }
 
+
     // Método para actualizar todos los productos de un carrito 
     async updateProducts(cartId, products) {
         const cartToFind = await cartModel.findById(cartId)
@@ -80,10 +82,15 @@ export default class CartManager {
         return {success: true, data: updatedCart}
     }
 
+
     // Método para actualizar la cantidad en un carrito determinado ///////////
     async updateProductQty(cartId, productId, newQty) {
         const cartToFind = await cartModel.findById(cartId)
         const productExists = cartToFind.products.find(prod => prod._id.equals(productId))
+
+        if (!cartToFind) {
+            return {success: false, error: "Carrito no encontrado"}
+        } 
 
         if (!productExists) {
             return {success: false, error: "El producto elegido no existe en este carrito"}
@@ -94,6 +101,24 @@ export default class CartManager {
             { $set: { "products.$.qty": newQty } },
             { new: true }
           )
+
+        return {success: true, data: updatedCart}
+    }
+
+
+    // Método para vaciar el carrito
+    async emptyCart(cartId) {
+        const cartToFind = await cartModel.findById(cartId)
+
+        if (!cartToFind) {
+            return {success: false, error: "Carrito no encontrado"}
+        } 
+
+        const updatedCart = await cartModel.findByIdAndUpdate(
+            cartId,
+            { $set: {products: []} },
+            { new: true }
+        )
 
         return {success: true, data: updatedCart}
     }

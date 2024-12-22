@@ -1,6 +1,7 @@
 import { Router } from "express";
 import mongoose from "mongoose";
 import CartManager from "../services/db/CartManager.js";
+import { cartModel } from "../services/db/models/cart.model.js";
 
 const router = Router()
 const cartManager = new CartManager()
@@ -139,6 +140,24 @@ router.put("/:cid/product/:pid", async (req, res) => {
         console.log(error)
         res.status(500).json({success: false, error: "Error al actualizar cantidades del carrito"})
 
+    }
+})
+
+
+// Vaciar el carrito //////////////////////////////////////////////////////////
+router.delete("/:cid", async (req, res) => {
+    try {
+        const cartId = new mongoose.Types.ObjectId(req.params.cid)
+        const emptyCart = await cartManager.emptyCart(cartId)
+
+        if (!emptyCart.success) {
+            return res.status(400).json({ success: false, error: emptyCart.error })
+        } else {
+            res.status(200).json({ success: true, data: emptyCart.data })
+        }
+    } catch (error) {
+        console.log(error)
+        res.status(500).json({success: false, error: "Error al vaciar el carrito"})
     }
 })
 
