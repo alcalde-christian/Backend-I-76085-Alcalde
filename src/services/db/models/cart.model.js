@@ -11,7 +11,8 @@ const cartSchema = new mongoose.Schema({
                     ref: "products"
                 },
                 qty: {
-                    type: Number
+                    type: Number,
+                    default: 1
                 }
             }
         ],
@@ -27,5 +28,4 @@ cartSchema.pre("findOne", function () {
     this.populate("products._id")
 })
 
-const cartModel = mongoose.model(cartCollection, cartSchema)
-export default cartModel 
+export const cartModel = mongoose.model(cartCollection, cartSchema)

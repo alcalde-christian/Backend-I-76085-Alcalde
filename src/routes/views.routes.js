@@ -1,9 +1,12 @@
 import { Router } from "express"
-import ProductManager from "../services/db/ProductManager.js";
+import mongoose from "mongoose"
+import ProductManager from "../services/db/ProductManager.js"
+import CartManager from "../services/db/CartManager.js"
 
 
 const router = Router()
 const productManager = new ProductManager()
+const cartManager = new CartManager()
 
 
 // Rutas de Handlebars
@@ -36,13 +39,31 @@ router.get("/products", async (req, res) => {
     } catch (error) {
         console.log(error)
     }
+})
 
 
+router.get("/cart/:cid", async (req, res) => {
+    try {
+        const cartId = new mongoose.Types.ObjectId(req.params.cid)
+        const populatedCart = await cartManager.getById(cartId)
 
+        if (!populatedCart) {
+            return res.status(404).json({success: false, error: "Carrito no encontrado"})
+        }
+        
+        const data = populatedCart.products.map(prod => ({
+            id: prod._id._id,
+            title: prod._id.title,
+            price: prod._id.price,
+            description: prod._id.description,
+            qty: prod.qty,
+        }))
 
-
-
-
+        res.render("cart", { data: data })
+    } catch (error) {
+        console.log(error)
+        res.status(500).json({success: false, error: "Error al renderizar el carrito"})
+    }
 })
 
 /*

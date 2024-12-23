@@ -35,4 +35,4 @@ API - Carts
 
 Handlebars          
 * Products          **OK**
-* Carts             ------
+* Carts             **OK** (CSS pendiente)

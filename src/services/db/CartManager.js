@@ -1,5 +1,5 @@
 // CartManager con DB
-import cartModel from "./models/cart.model.js" 
+import { cartModel } from "./models/cart.model.js" 
 import { productModel } from "./models/product.model.js"
 
 export default class CartManager {
