@@ -1,5 +1,5 @@
 // CartManager con DB
-import { cartModel } from "./models/cart.model.js" 
+import cartModel from "./models/cart.model.js" 
 import { productModel } from "./models/product.model.js"
 
 export default class CartManager {
@@ -12,7 +12,7 @@ export default class CartManager {
 
     // Método para obtener sólo un carrito por ID
     async getById(id) {
-        return await cartModel.findById(id).populate("products.product")
+        return await cartModel.findById(id)
     }
 
 
@@ -38,10 +38,8 @@ export default class CartManager {
         const isAlreadyAdded = cartToFind.products.find(prod => prod._id.equals(productId))
 
         if (isAlreadyAdded) {
-            console.log("true")
             cartToFind.products.find(prod => prod._id.equals(productId)).qty++
         } else {
-            console.log("false")
             cartToFind.products.push({_id: productId, qty: 1})
         }
 

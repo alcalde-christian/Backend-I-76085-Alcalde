@@ -34,7 +34,7 @@ const productSchema = new mongoose.Schema({
         required: true,
         index: true
     },
-    thumbnails: []
+    thumbnail: []
 })
 
 productSchema.plugin(mongoosePaginate)

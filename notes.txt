@@ -29,6 +29,9 @@ API - Carts
 * DELETE:           
     - removeProduct **OK**
     - removeAll     **OK**
+* POPULATE:
+    - find          **OK**
+    - findById      **OK**
 
 Handlebars          
 * Products          **OK**
